@@ -17,7 +17,7 @@ export default function RouteWrapper({
   path,
   ...rest
 }) {
-  const { signed, oAuthSuccess, oAuthLogged } = store.getState().auth;
+  const { signed, oAuthSuccess } = store.getState().auth;
   // const signed = true;
   const account = store.getState();
   const { token } = account.auth;

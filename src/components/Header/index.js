@@ -23,7 +23,9 @@ function Header() {
         <aside>
           <Profile>
             <div>
-              <strong>{userProfile.profile.name}</strong>
+              <strong>
+                {userProfile && userProfile.profile && userProfile.profile.name}
+              </strong>
               <Link to="/profile">Meu Perfil</Link>
             </div>
             <img

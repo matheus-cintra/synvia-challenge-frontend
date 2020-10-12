@@ -54,7 +54,7 @@ function PokemonDialog({ setOpen, current, getPokemons }) {
   const [submitting, setSubmitting] = useState(false);
   const [inputActive, setInputActive] = useState({});
   const [askOpen, setAskOpen] = useState(false);
-  const [dialogOpen, setDialogOpen] = useState(false);
+  const [, setDialogOpen] = useState(false);
 
   const handleClose = () => {
     if (submitting) return;
@@ -105,7 +105,7 @@ function PokemonDialog({ setOpen, current, getPokemons }) {
     setTimeout(() => {
       handleDispatchEvents(pokemonId);
     }, 50);
-  }, []);
+  }, []); //eslint-disable-line
 
   const handleOpenAskDialog = () => setAskOpen(asking => !asking);
 

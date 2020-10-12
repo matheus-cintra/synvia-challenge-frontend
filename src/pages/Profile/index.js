@@ -1,11 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
-import Icon from '@mdi/react';
 import { connect, useDispatch } from 'react-redux';
-import { mdiDelete, mdiDatabase, mdiMapMarker } from '@mdi/js';
-import { toast } from 'react-toastify';
 import DefaultInput from '../../components/DefaultInput/Input';
-import api from '../../services/api';
-import history from '../../services/history';
 
 import {
   Container,
@@ -22,7 +17,7 @@ import Asks from './Dialogs/Asks';
 
 import { handleSubmit } from './methods';
 import { setProfile } from '../../store/modules/user/actions';
-import { deleteAccount } from '../../store/modules/auth/actions';
+import { deleteAccount, logoutUser } from '../../store/modules/auth/actions';
 import { store } from '../../store';
 
 function Profile() {
@@ -44,15 +39,18 @@ function Profile() {
   const handleOpenAskDialog = () => setAskOpen(asking => !asking);
 
   function handleCloseReturn() {
-    dispatch(deleteAccount());
-    history.push('/');
+    dispatch(logoutUser());
+    setTimeout(() => {
+      window.location.reload();
+      dispatch(deleteAccount());
+    }, 100);
   }
 
   const handleAskDialog = () => {
     return (
       <Asks
         setAskOpen={handleOpenAskDialog}
-        accountId={accountInfo._id}
+        accountId={accountInfo && accountInfo._id}
         closeReturn={handleCloseReturn}
       />
     );
@@ -69,7 +67,7 @@ function Profile() {
                 name="name"
                 type="text"
                 placeholder="Nome de Exibição"
-                defaultValue={accountInfo.name}
+                defaultValue={accountInfo && accountInfo.name}
               />
             </Row>
             <Row>
@@ -77,7 +75,7 @@ function Profile() {
                 name="email"
                 type="email"
                 placeholder="E-mail do Usuário"
-                defaultValue={accountInfo.email}
+                defaultValue={accountInfo && accountInfo.email}
                 disabled
               />
             </Row>
