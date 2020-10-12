@@ -1,0 +1,269 @@
+import styled from 'styled-components';
+import { Form as Unform } from '@unform/web';
+
+export const Container = styled.div`
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
+export const Toolbar = styled.div`
+  display: flex;
+  height: 60px;
+  background: #333;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  svg {
+    margin-right: 15px;
+    cursor: pointer;
+  }
+`;
+
+export const Title = styled.span`
+  font-size: 18px;
+  color: #fff;
+  margin-left: 15px;
+`;
+
+export const Form = styled(Unform)`
+  fieldset {
+    border: none;
+  }
+
+  input {
+    width: 250px;
+  }
+`;
+
+export const BottomActions = styled.div`
+  display: flex;
+  height: 60px;
+  background: #ccc;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  svg {
+    margin-left: 15px;
+    cursor: pointer;
+  }
+
+  button {
+    min-width: 90px;
+    padding: 10px;
+    margin-right: 15px;
+    background: ${props =>
+      props.searching || props.submitting ? '#ccc' : '#333'};
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: ${props =>
+      props.searching || props.submitting ? 'default' : 'pointer'};
+  }
+`;
+
+export const RowContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+
+  input {
+    width: 100%;
+  }
+
+  label {
+    align-self: center;
+    margin-left: 25px;
+  }
+`;
+
+export const SearchButton = styled.button.attrs({
+  type: 'button',
+})`
+  border: none;
+  background: transparent;
+  padding: 4px;
+  cursor: ${props => (props.disabled ? 'default' : 'pointer')};
+`;
+
+export const SearchContainer = styled.div`
+  display: flex;
+  width: 41%;
+  justify-content: space-between;
+
+  @media screen and (max-width: 768px) {
+    input {
+      margin-left: 0;
+    }
+
+    button {
+      margin-left: 5px;
+    }
+  }
+`;
+
+export const LoadingScreen = styled.div`
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  padding: 100px;
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`;
+
+export const AutocompleteContainer = styled.div`
+  /* display: flex;
+  width: 100%;
+  flex: 1;
+  justify-content: center; */
+`;
+
+export const AutoCompleteResult = styled.span`
+  /* font-size: 12px;
+  margin-left: 10px;
+  margin-top: 0;
+  padding: 10px;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+  width: 100%;
+  z-index: 5;
+  transition: background 0.5s; */
+
+  /* cursor: pointer; */
+  /* width: 100%;
+  padding: 10px;
+  background: #fff;
+  transition: background 1s; */
+
+  /* &:hover {
+    background: #333;
+  } */
+`;
+
+export const DescriptionTextArea = styled.textarea`
+  font: 14px 'Roboto', sans-serif;
+  padding: 10px;
+  /* margin: 5px 5px 5px 10px; */
+  /* margin-left: 5px; */
+  margin: 5px 0 0 5px;
+  border-radius: 4px;
+  border: none;
+  background: #f3f3f3;
+  width: 100%;
+  font-size: 14px;
+  resize: none;
+`;
+
+// export const FloatingLabelInputContainer = styled.div`
+//   display: flex;
+//   align-items: center;
+//   width: 100%;
+
+//   input {
+//     -webkit-appearance: none !important;
+//     padding: 10px;
+//     margin: 5px;
+//     border-radius: 4px;
+//     border: none;
+//     background: #f3f3f3;
+//   }
+// `;
+
+// export const FloatingLabel = styled.label`
+//   display: inline-block;
+//   z-index: 2;
+//   position: absolute;
+//   transition: all 150ms ease-in;
+//   color: #9a9a9a;
+//   margin-left: 15px !important;
+//   cursor: text;
+
+//   transform: ${props => (props.active ? 'translateY(-17px)' : null)};
+//   font-size: ${props => (props.active ? '0.8em' : null)};
+//   color: ${props => (props.active ? '#9a9a9a' : null)};
+//   text-shadow: ${props =>
+//     props.active
+//       ? '1px 0 0 #fff, -1px 0 0 #fff, 2px 0 0 #fff, -2px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff'
+//       : null};
+// `;
+
+// export const FloatLabelInput = styled.input`
+//   -webkit-appearance: none !important;
+//   padding: 10px;
+//   margin: 5px;
+//   border-radius: 4px;
+//   border: none;
+//   background: #f3f3f3;
+//   text-transform: uppercase;
+// `;
+
+export const FloatingLabelInputContainer = styled.div`
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 5px;
+
+  input {
+    -webkit-appearance: none !important;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 4px;
+    border: none;
+    background: #f3f3f3;
+  }
+`;
+
+export const FloatingLabel = styled.label`
+  display: inline-block;
+  z-index: 2;
+  position: absolute;
+  transition: all 150ms ease-in;
+  color: #9a9a9a;
+  margin-left: 15px !important;
+  cursor: text;
+  margin-top: 15px;
+
+  width: 300px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+
+  transform: ${props => (props.active ? 'translateY(-16px)' : null)};
+  font-size: ${props => (props.active ? '0.8em' : null)};
+  color: ${props => (props.active ? '#9a9a9a' : null)};
+  text-shadow: ${props =>
+    props.active
+      ? '1px 0 0 #fff, -1px 0 0 #fff, 2px 0 0 #fff, -2px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff'
+      : null};
+`;
+
+export const FloatLabelInput = styled.input`
+  -webkit-appearance: none !important;
+  padding: 10px;
+  margin: 20px 5px 20px 5px;
+  border-radius: 4px;
+  border: none;
+  background: #f3f3f3;
+  font-size: 14px !important;
+`;
