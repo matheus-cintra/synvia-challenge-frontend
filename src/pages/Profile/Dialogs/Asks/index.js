@@ -8,7 +8,6 @@ import api from '../../../../services/api';
 import { Toolbar, Title, Container, AskText, BottomActions } from './styles';
 
 function Asks({ setAskOpen, accountId, closeReturn }) {
-  console.warn('chegou aqui...', accountId);
   const handleClose = () => {
     closeReturn();
     setAskOpen(open => !open);
@@ -16,7 +15,7 @@ function Asks({ setAskOpen, accountId, closeReturn }) {
 
   const handleDeleteAccount = async () => {
     try {
-      // await api.delete(`/api/v1/delete-account/${accountId}`);
+      await api.delete(`/api/v1/delete-account/${accountId}`);
       handleClose();
     } catch (error) {
       toast.error(error.response.data.message);

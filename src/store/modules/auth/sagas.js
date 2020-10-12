@@ -21,7 +21,6 @@ export function* signIn({ payload }) {
 
     api.defaults.headers['auth-token'] = token;
     api.defaults.headers['account-id'] = userToFront._id;
-    console.warn('User > ', userToFront);
     if (userToFront.oAuthConfigured) {
       yield put(oAuthSuccess());
     }
@@ -36,11 +35,9 @@ export function* signIn({ payload }) {
 
 export function* validateOauth({ payload }) {
   try {
-    console.warn('payload > ', payload);
     const response = yield call(api.post, '/api/v1/oauth-validation', {
       ...payload,
     });
-    console.warn('RESPONSE > ', response);
 
     if (!response.data.success) {
       return toast.error(
@@ -52,7 +49,6 @@ export function* validateOauth({ payload }) {
 
     history.push('/pokedex');
   } catch (err) {
-    console.warn('ERR > ', err);
     toast.error(err.response.data.message);
   }
 }
@@ -67,7 +63,6 @@ export function* signUp({ payload }) {
 }
 
 export function* setToken({ payload }) {
-  console.warn('chegou no setToken > ', payload);
   if (!payload) return;
 
   const { token } = payload.auth;

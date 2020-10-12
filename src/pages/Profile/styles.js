@@ -362,4 +362,13 @@ export const LoadingScreen = styled.div`
 
 export const Actions = styled.div``;
 
-export const DeleteButton = styled.button``;
+export const DeleteButton = styled.button`
+  margin: 30px 30px 0 0;
+  width: 150px;
+  height: 40px;
+  border: none;
+  background: #ccc;
+  border-radius: 5px;
+  color: #000;
+  font-weight: bold;
+`;

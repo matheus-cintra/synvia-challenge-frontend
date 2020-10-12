@@ -2,8 +2,6 @@ import { toast } from 'react-toastify';
 import api from '../../services/api';
 
 async function handleSubmit(data, formRef, profile, dispatch, setProfile) {
-  console.warn('DATA > ', data);
-  console.warn('profile > ', profile);
   try {
     formRef.current.setErrors({});
 

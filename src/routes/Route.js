@@ -33,20 +33,17 @@ export default function RouteWrapper({
   }
 
   if (title) window.document.title = title;
-  console.warn('oAUTH > ', account);
 
   if (!signed && isPrivate) {
     return <Redirect to="/" />;
   }
 
-
   if (signed && oAuthSuccess && !isPrivate) {
     return <Redirect to="/pokedex" />;
   }
 
-
-  const Layout = signed && path !== '/oauth-qrcode' ? DefaultLayout : AuthLayout;
-
+  const Layout =
+    signed && path !== '/oauth-qrcode' ? DefaultLayout : AuthLayout;
 
   return (
     <Route

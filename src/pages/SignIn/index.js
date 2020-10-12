@@ -10,7 +10,6 @@ import DefaultInput from '../../components/DefaultInput/Input';
 import { signInRequest } from '../../store/modules/auth/actions';
 
 export default function SignIn() {
-  console.warn('chegou no login');
   const [submitting, setSubmitting] = useState(false);
 
   const dispatch = useDispatch();
